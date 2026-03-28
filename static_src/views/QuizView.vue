@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <div>
+    <h1>Quiz — coming soon</h1>
+  </div>
 </template>

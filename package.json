@@ -11,6 +11,7 @@
         "type-check": "vue-tsc --build",
         "lint": "run-s lint:*",
         "lint:oxlint": "oxlint . --fix",
+        "server:dev": "tsx watch src/index.ts",
         "lint:eslint": "eslint . --fix --cache"
     },
     "packageManager": "yarn@4.13.0",
@@ -36,6 +37,7 @@
         "jiti": "^2.6.1",
         "npm-run-all2": "^8.0.4",
         "oxlint": "~1.51.0",
+        "tsx": "^4.19.3",
         "typescript": "~5.9.3",
         "vite": "beta",
         "vite-plugin-vue-devtools": "^8.0.7",

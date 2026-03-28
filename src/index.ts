@@ -1,12 +1,22 @@
-import express from "express";
-import dotenv from "dotenv";
-import path from "path";
-dotenv.config({})
+import express from 'express'
+import dotenv from 'dotenv'
+import airportsRouter from './routes/airports.js'
+import flightsRouter from './routes/flights.js'
 
-const app = express();
+dotenv.config()
 
-app.get("/", (req, res) => {
-    res.send("Testing the server!")
+const app = express()
+const PORT = process.env.PORT ?? 3000
+
+app.use(express.json())
+
+app.get('/api/health', (_req, res) => {
+  res.json({ status: 'ok' })
 })
 
-export default app;
+app.use('/api/airports', airportsRouter)
+app.use('/api/flights', flightsRouter)
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`)
+})
