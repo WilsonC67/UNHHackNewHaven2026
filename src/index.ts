@@ -5,6 +5,7 @@ import fs from "fs"
 import { createServer } from "http";
 import weather from "./routes/weather.js"
 import flight_info from "./routes/flight_info.js"
+import itinerary from "./routes/itinerary.js"
 
 function findDotEnv(check_path: string | undefined = undefined) {
     if (check_path == "/") {
@@ -30,6 +31,7 @@ app.use(express.json())
 app.use(express.text())
 app.use("/weather", weather)
 app.use("/flight_info", flight_info)
+app.use("/itinerary", itinerary)
 
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok' })
