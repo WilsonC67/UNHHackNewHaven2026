@@ -4,15 +4,12 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "vite",
-        "build": "run-p type-check \"build-only {@}\" --",
-        "preview": "vite preview",
-        "build-only": "vite build",
-        "type-check": "vue-tsc --build",
-        "lint": "run-s lint:*",
-        "lint:oxlint": "oxlint . --fix",
-        "server:dev": "tsx watch src/index.ts",
-        "lint:eslint": "eslint . --fix --cache"
+        "dev_server": "yarn tsc -p tsconfig.node.json",
+        "dev": "yarn vite",
+        "preview": "yarn vite preview",
+        "lint": "yarn lint:oxlint yarn lint:eslint",
+        "lint:oxlint": "yarn oxlint .",
+        "lint:eslint": "yarn eslint . --cache"
     },
     "packageManager": "yarn@4.13.0",
     "dependencies": {

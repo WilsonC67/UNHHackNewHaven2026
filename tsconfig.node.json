@@ -19,6 +19,10 @@
         "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 
         "rootDir": "./src",
-        "outDir": "./dist"
+        "outDir": "./dist",
+
+        "esModuleInterop": true,
+        
+        "sourceMap": true
     }
 }
