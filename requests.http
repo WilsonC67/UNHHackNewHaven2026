@@ -1,0 +1,33 @@
+### Health check
+GET http://localhost:3000/api/health
+
+### Airport lookup — known city
+POST http://localhost:3000/api/airports
+Content-Type: application/json
+
+{ "query": "Tokyo" }
+
+### Airport lookup — unknown city (expect 404)
+POST http://localhost:3000/api/airports
+Content-Type: application/json
+
+{ "query": "Fakecity" }
+
+### Flight search
+POST http://localhost:3000/api/flights
+Content-Type: application/json
+
+{
+  "originQuery": "New York City",
+  "destinationQuery": "Tokyo",
+  "departureDate": "2026-06-15",
+  "adults": 1
+}
+
+### Flight search — missing field (expect 400)
+POST http://localhost:3000/api/flights
+Content-Type: application/json
+
+{
+  "originQuery": "Paris"
+}

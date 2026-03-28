@@ -60,5 +60,5 @@ node_modules
 #!.yarn/cache
 .pnp.*
 
-# manual
+# environment variables
 .env
