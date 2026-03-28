@@ -1,64 +1,36 @@
-
 const RAPIDAPI_HOST = "sky-scrapper.p.rapidapi.com";
 
-const rapidApiHeaders = {
+const headers = {
     "X-RapidAPI-Key": process.env.RAPIDAPI_KEY ?? "",
     "X-RapidAPI-Host": RAPIDAPI_HOST,
+    "Content-Type": "application/json"
 };
 
-// Step 1: Resolve an airport name or IATA code to a Sky Scrapper skyId
-async function resolveSkyId(query: string): Promise<string> {
-    const response = await fetch(
-        `https://${RAPIDAPI_HOST}/api/v1/flights/searchAirport`,
-        { headers: rapidApiHeaders, params: { query, locale: "en-US" } }
-    );
-    const results = response.data?.data;
-    if (!results?.length) throw new Error(`No airport found for: ${query}`);
-    return results[0].skyId as string;
+export async function searchSkyId(name: string): Promise<Airport[]> {
+    let req = await fetch(`https://${RAPIDAPI_HOST}/api/v1/flights/searchAirport?query=${name}&locale=en-US`, {
+        headers
+    })
+
+    return await req.json() as Airport[]
 }
 
-interface SkyScrapeItinerary {
-    id: string;
-    price: { raw: number };
-    legs: {
-        durationInMinutes: number;
-        stopCount: number;
-        departure: string;
-        arrival: string;
-        carriers: { marketing: Array<{ name: string; alternateId: string }> };
-    }[];
-}
-
-interface FlightRequestBody {
-    originQuery: string;      // city name or IATA e.g. "New York" or "JFK"
-    destinationQuery: string;
-    departureDate: string;    // YYYY-MM-DD
-    adults?: number;
-}
+// Stop Here
 
 export async function searchFlights(
-    city_name: string,
-    destination_name: string,
-    adults: number = 2
-): Promise<{}> {
+    /**
+     * origin's sky id
+     */
+    origin: string,
+    /**
+     * destinations's sky id
+     */
+    destination: string,
+    adults: number = 1
+): Promise<{
+    cost: number,
+
+}> {
     try {
-        const { originQuery, destinationQuery, departureDate, adults = 1 } = req.body;
-
-        if (!originQuery || !destinationQuery || !departureDate) {
-            res.status(400).json({
-                success: false,
-                error: "originQuery, destinationQuery, and departureDate are required",
-            });
-            return;
-        }
-
-        // Step 1: Resolve skyIds in parallel
-        const [originSkyId, destinationSkyId] = await Promise.all([
-            resolveSkyId(originQuery),
-            resolveSkyId(destinationQuery),
-        ]);
-
-        // Step 2: Search flights
         const response = await fetch(
             `https://${RAPIDAPI_HOST}/api/v2/flights/searchFlightsComplete`,
             {

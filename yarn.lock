@@ -409,6 +409,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@google/generative-ai@npm:^0.24.1":
+  version: 0.24.1
+  resolution: "@google/generative-ai@npm:0.24.1"
+  checksum: 10c0/8da77fc648b04fc2ecef53e75230e2ee67a8fd29a34b6b8874e77a7332b2a1e4b51d44dd9eb604fb063ed8ea46d293aac5b1e2a955ae2435e2582a265f2cb80d
+  languageName: node
+  linkType: hard
+
 "@humanfs/core@npm:^0.19.1":
   version: 0.19.1
   resolution: "@humanfs/core@npm:0.19.1"
@@ -1906,6 +1913,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^17.3.1":
+  version: 17.3.1
+  resolution: "dotenv@npm:17.3.1"
+  checksum: 10c0/c78e0c2d5a549c751e544cc60e2b95e7cb67e0c551f42e094d161c6b297aa44b630a3c2dcacf5569e529a6c2a6b84e2ab9be8d37b299d425df5a18b81ce4a35f
+  languageName: node
+  linkType: hard
+
 "dunder-proto@npm:^1.0.1":
   version: 1.0.1
   resolution: "dunder-proto@npm:1.0.1"
@@ -2218,6 +2232,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "family-savers@workspace:."
   dependencies:
+    "@google/generative-ai": "npm:^0.24.1"
     "@tsconfig/node24": "npm:^24.0.4"
     "@types/express": "npm:^5"
     "@types/node": "npm:^24.12.0"
@@ -2225,6 +2240,7 @@ __metadata:
     "@vitejs/plugin-vue-jsx": "npm:^5.1.4"
     "@vue/eslint-config-typescript": "npm:^14.7.0"
     "@vue/tsconfig": "npm:^0.9.0"
+    dotenv: "npm:^17.3.1"
     eslint: "npm:^10.0.3"
     eslint-plugin-oxlint: "npm:~1.51.0"
     eslint-plugin-vue: "npm:~10.8.0"

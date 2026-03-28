@@ -1,4 +1,12 @@
-# .
+## UNH HackNewHaven 2026
+
+## Project:
+
+Team Members:
+- Ryan Davis
+- Aurelien Buisine
+- Reed Scampoli
+- Wilson Chen
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -46,3 +54,5 @@ yarn build
 ```sh
 yarn lint
 ```
+
+Team 19

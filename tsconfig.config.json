@@ -4,6 +4,7 @@
     "include": [
         "vite.config.*",
         "eslint.config.*",
+        "./global.d.ts"
     ],
     "compilerOptions": {
         // Most tools use transpilation instead of Node.js's native type-stripping.

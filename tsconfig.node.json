@@ -2,7 +2,8 @@
 {
     "extends": "@tsconfig/node24/tsconfig.json",
     "include": [
-        "src/**/*"
+        "src/**/*",
+        "./global.d.ts"
     ],
     "compilerOptions": {
         // Most tools use transpilation instead of Node.js's native type-stripping.

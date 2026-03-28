@@ -1,6 +1,6 @@
 {
     "extends": "@vue/tsconfig/tsconfig.dom.json",
-    "include": ["env.d.ts", "static_src/**/*", "static_src/**/*.vue"],
+    "include": ["env.d.ts", "static_src/**/*", "static_src/**/*.vue", "./global.d.ts"],
     "exclude": ["static_src/**/__tests__/*"],
     "compilerOptions": {
         // Extra safety for array and object lookups, but may have false positives.
